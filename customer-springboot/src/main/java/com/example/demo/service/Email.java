@@ -14,7 +14,7 @@ public class Email extends Thread {
 	}
 	
 	public void sendEmail(String name) {
-		System.out.println("Sending email to "+name+" from Thead "+Thread.currentThread().getName());
+		System.out.println("Sending email to "+name+" from Thread "+Thread.currentThread().getName());
 	}
 	
 }

@@ -59,8 +59,12 @@ public class CustomerService {
 	// Update existing customer
 	@Async
 	public CompletableFuture<String> updateCustomer(Customer customer) {
+		Email email = new Email(customer.getName());
+		Info info = new Info(customer.getName());
 		log.info("updating customer with id: "+customer.getId());
 		cusRepo.save(customer);
+		email.start();
+		info.start();
 		return CompletableFuture.supplyAsync(() -> "");
 	}
 	
