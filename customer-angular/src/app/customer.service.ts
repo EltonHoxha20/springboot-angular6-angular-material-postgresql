@@ -22,6 +22,20 @@ export class CustomerService {
     const url = `${this.baseUrl}/customers/${id}`;
     return this.http.get<Customer>(url);
   }
+
+  addCustomer(customer: Customer): Observable<any> {
+    return this.http.post(this.baseUrl + `/customers`, customer, httpOptions);
+  }
+
+  updateCustomer(customer: Customer): Observable<any> {
+    return this.http.put(this.baseUrl + `/customers`, customer, httpOptions);
+  }
+
+  deleteCustomer(customer: Customer | number): Observable<Customer> {
+    const id = typeof customer === 'number' ? customer : customer.id;
+    const url = `${this.baseUrl}/customers/${id}`;
+    return this.http.delete<Customer>(url, httpOptions);
+  }
   constructor(
     private http: HttpClient
   ) { }

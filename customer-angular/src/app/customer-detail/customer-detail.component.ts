@@ -11,12 +11,32 @@ import { CustomerService } from '../customer.service';
 export class CustomerDetailComponent implements OnInit {
 
   @Input() customer: Customer;
+  customers: Customer[];
 
-  getHero(): void {
+  getCustomer(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.customerService.getCustomer(id)
       .subscribe(customer => this.customer = customer);
   }
+
+  add(name: string, address: string, phone_number: string, email: string): void {
+    name = name.trim();
+    address = address.trim();
+    phone_number = phone_number.trim();
+    email = email.trim();
+
+    if (!name && !address && !phone_number && !email) {
+      return;
+    }
+    this.customerService.addCustomer({name, address, phone_number, email} as Customer)
+      .subscribe( () => this.back());
+   }
+
+   update(): void {
+    this.customerService.updateCustomer(this.customer)
+      .subscribe(() => this.back());
+  }
+
 
   back(): void {
     this.location.back();
@@ -29,7 +49,7 @@ export class CustomerDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getHero();
+    this.getCustomer();
   }
 
 }

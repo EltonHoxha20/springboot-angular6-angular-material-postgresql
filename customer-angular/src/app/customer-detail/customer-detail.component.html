@@ -1,10 +1,62 @@
+<button (click)="back()">Go Back</button>
+<br/><br/>
+
+<div>
 <div *ngIf="customer">
-  <div>Id: <span> {{customer.id}}</span></div>
-  <div>Name: <span> {{customer.name}}</span></div>
-  <div>Address: <span> {{customer.address}}</span></div>
-  <div>Phone Number: <span> {{customer.phone_number}}</span></div>
-  <div>Email: <span> {{customer.email}}</span></div>
+<div>
+  <label>ID: 
+    <input [(ngModel)]="customer.id" placeholder="ID"/>
+  </label>
+</div>
+
+<div>
+  <label>Name: 
+    <input [(ngModel)]="customer.name" placeholder="Name"/>
+  </label>
+</div>
+<div>
+  <label>Address: 
+    <input [ngModel]="customer.address" placeholder="Address"/>
+  </label>
+</div>
+<div>
+  <label>Phone Number: 
+    <input [(ngModel)]="customer.phone_number" placeholder="Phone Number"/>
+  </label>
+</div>
+<div>
+  <label>Email: 
+    <input [(ngModel)]="customer.email" placeholder="Email"/>
+  </label>
 </div>
 <br/>
+<button (click)="update(customer)">Update</button>
+</div>
+</div>
 
-<button (click)="back()">Go Back</button>
+<div>
+  <div *ngIf="!customer">
+  <div>
+    <label>Name: 
+      <input #name placeholder="Name"/>
+    </label>
+  </div>
+  <div>
+    <label>Address: 
+      <input  #address placeholder="Address"/>
+    </label>
+  </div>
+  <div>
+    <label>Phone Number: 
+      <input #phone_number placeholder="Phone Number"/>
+    </label>
+  </div>
+  <div>
+    <label>Email: 
+      <input #email placeholder="Email"/>
+    </label>
+  </div>
+  <br/>
+    <button (click)="add(name.value, address.value, phone_number.value,
+                    email.value);">Save</button>
+  </div></div>

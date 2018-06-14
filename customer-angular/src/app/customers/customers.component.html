@@ -1,6 +1,9 @@
+<button routerLink="/api/customers/detail">Add New Customer</button>
+
 <ul>
   <li *ngFor="let c of customers"> 
       <div routerLink="/api/customers/{{c.id}}">{{c.name}}</div>
     <br/>
   </li>
 </ul>
+
