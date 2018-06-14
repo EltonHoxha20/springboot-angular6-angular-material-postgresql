@@ -30,5 +30,4 @@ public interface CustomerRepository extends JpaRepository <Customer, Long>{
 	@Async
 	@Query(value="select * from customer where id = ?1", nativeQuery=true)
 	public CompletableFuture<Customer> getCustomerById(Long id);
-	
 }

@@ -13,7 +13,7 @@ import java.net.InetAddress;
 import java.net.MalformedURLException;
 
 public class Info extends Thread {
-
+	
 	private String name;
 	
 	public Info(String name) {
@@ -45,7 +45,6 @@ public class Info extends Thread {
 				e.printStackTrace();
 			}
 		});
-		
 		Collection<String> uniqueHostname = collections.parallelStream().distinct().map(i -> i).collect(Collectors.toList());
 		uniqueHostname.parallelStream().forEach(i -> {
 			System.out.println(i);

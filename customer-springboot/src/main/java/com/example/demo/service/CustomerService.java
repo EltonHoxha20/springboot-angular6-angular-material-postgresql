@@ -5,12 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.example.demo.model.Customer;
 import com.example.demo.repository.CustomerRepository;
 import com.example.demo.service.Email;
 import com.example.demo.service.Info;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Service
 public class CustomerService {
@@ -46,8 +46,8 @@ public class CustomerService {
 	
 	// Insert new customer
 	@Async
-	public CompletableFuture<String> insertCustomer(Customer customer) {
-		Email email = new Email(customer.getName());
+	public CompletableFuture<String> insertCustomer(Customer customer) throws InterruptedException {
+		Email email = new Email(customer.getEmail());
 		Info info = new Info(customer.getName());
 		log.info("inserting new customer");
 		cusRepo.save(customer);
@@ -59,7 +59,7 @@ public class CustomerService {
 	// Update existing customer
 	@Async
 	public CompletableFuture<String> updateCustomer(Customer customer) {
-		Email email = new Email(customer.getName());
+		Email email = new Email(customer.getEmail());
 		Info info = new Info(customer.getName());
 		log.info("updating customer with id: "+customer.getId());
 		cusRepo.save(customer);

@@ -131,15 +131,15 @@ public class CustomerController {
 
 	// Insert new customer
 	@PostMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> insertCustomer(@RequestBody Customer customer) {
+	public ResponseEntity<String> insertCustomer(@RequestBody Customer customer) throws InterruptedException {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("responseCode", successHeaderKV.get("successCode"));
 		headers.add("responseDesc", successHeaderKV.get("successDesc"));
 		headers.add(HttpHeaders.CONTENT_TYPE, successHeaderKV.get("contentType"));
 		
 		CompletableFuture<String> cf = cusService.insertCustomer(customer);
-		String insertCustomer = null;
 		
+		String insertCustomer = null;
 		try {
 			insertCustomer = cf.get();
 		} catch (InterruptedException e) {
