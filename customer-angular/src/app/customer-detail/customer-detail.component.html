@@ -1,3 +1,10 @@
-<p>
-  customer-detail works!
-</p>
+<div *ngIf="customer">
+  <div>Id: <span> {{customer.id}}</span></div>
+  <div>Name: <span> {{customer.name}}</span></div>
+  <div>Address: <span> {{customer.address}}</span></div>
+  <div>Phone Number: <span> {{customer.phone_number}}</span></div>
+  <div>Email: <span> {{customer.email}}</span></div>
+</div>
+<br/>
+
+<button (click)="back()">Go Back</button>

@@ -12,10 +12,15 @@ const httpOptions = {
 })
 export class CustomerService {
 
-  private heroesUrl = 'http://localhost:8090/customers';
+  private baseUrl = 'http://localhost:8090';
 
   getCustomers(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.heroesUrl);
+    return this.http.get<Customer[]>(this.baseUrl + `/customers`);
+  }
+
+   getCustomer(id: number): Observable<Customer> {
+    const url = `${this.baseUrl}/customers/${id}`;
+    return this.http.get<Customer>(url);
   }
   constructor(
     private http: HttpClient

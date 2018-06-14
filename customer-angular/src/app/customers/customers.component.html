@@ -1,10 +1,6 @@
 <ul>
   <li *ngFor="let c of customers"> 
-    <div>ID: <span> {{c.id}}</span></div>
-    <div>Name: <span> {{c.name}}</span></div>
-    <div>Address: <span> {{c.address}}</span></div>
-    <div>Phone Number: <span> {{c.phone_number}}</span></div>
-    <div>Email: <span> {{c.email}}</span></div>
+      <div routerLink="/api/customers/{{c.id}}">{{c.name}}</div>
     <br/>
   </li>
 </ul>
