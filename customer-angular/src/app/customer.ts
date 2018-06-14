@@ -2,5 +2,6 @@ export class Customer {
     id: number;
     name: string;
     address: string;
-    urls: string;
+    phone_number: string;
+    email: string;
 }
