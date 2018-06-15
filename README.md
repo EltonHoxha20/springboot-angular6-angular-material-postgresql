@@ -4,13 +4,13 @@
 
 <h3>Prerequisites</h3>
 <p>1. <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK 1.8</a></p>
-<p>2. <a href="https://www.eclipse.org/downloads/packages/">Eclipse</p>
-<p>3. <a href="https://maven.apache.org">Maven</p>
-<p>3. <a href="https://angular.io">Angular 6</p>
-<p>4. <a href="https://material.angular.io">Angular Material</p>
-<p>5. <a href="https://spring.io/projects/spring-boot">Spring Boot 2.0.2.RELEASE<p>
-<p>6 <a href="https://spring.io/projects/spring-data">Spring Data JPA</p>
-<p>7. <a href="https://www.postgresql.org">PostgreSQL</p>
+<p>2. <a href="https://www.eclipse.org/downloads/packages/">Eclipse</a></p>
+<p>3. <a href="https://maven.apache.org">Maven</a></p>
+<p>3. <a href="https://angular.io">Angular 6</a></p>
+<p>4. <a href="https://material.angular.io">Angular Material</a></p>
+<p>5. <a href="https://spring.io/projects/spring-boot">Spring Boot 2.0.2.RELEASE</a><p>
+<p>6 <a href="https://spring.io/projects/spring-data">Spring Data JPA</a></p>
+<p>7. <a href="https://www.postgresql.org">PostgreSQL</a></p>
 
 <p>The repository contains two separate apps i.e. customer-angular (frontend) and customer-springboot (backend). The interaction of these two apps is achieved through RESTful webservice, in which the customer-angular is a REST consumer and the rest is a REST provider. The customer-springboot used spring data jpa in handling DDL and DML, but instead of applying all its DML's default methods, I defined a custom query using spring data jpa's query annotation. </p>
 
