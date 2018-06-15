@@ -1,5 +1,5 @@
 
-<mat-card color="primary">
+<mat-card>
 <h2>Customer List</h2>
 </mat-card>
 <mat-list *ngFor="let c of customers">
@@ -11,7 +11,7 @@
      <span>ID: </span>{{c.id}}
      <br/>
      <span>Name: </span> {{c.name}}
-    </span> 
+    </span>  
   </mat-list-item>
     <span><button (click)="delete(c)" mat-raised-button color="warn">Delete</button></span>
     <span class="example_spacer"></span>
