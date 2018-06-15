@@ -14,6 +14,11 @@ export class CustomersComponent implements OnInit {
       .subscribe(customers => this.customers = customers);
   }
 
+  delete(customer: Customer): void {
+    this.customers = this.customers.filter(c => c !== customer);
+    this.customerService.deleteCustomer(customer).subscribe();
+  }
+
   constructor(
     private customerService: CustomerService
   ) { }

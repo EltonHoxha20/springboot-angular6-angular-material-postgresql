@@ -22,7 +22,7 @@ public interface CustomerRepository extends JpaRepository <Customer, Long>{
 	public CompletableFuture<Collection<Customer>> getCustomersByAddress(String string);
 	
 	// Get customer by name
-	@Async
+	@Async	
 	@Query(value="select * from customer where name = ?1", nativeQuery=true)
 	public CompletableFuture<Collection<Customer>> getCustomerByName(String name);
 	

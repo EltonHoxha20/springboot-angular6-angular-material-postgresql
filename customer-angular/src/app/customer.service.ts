@@ -33,7 +33,7 @@ export class CustomerService {
 
   deleteCustomer(customer: Customer | number): Observable<Customer> {
     const id = typeof customer === 'number' ? customer : customer.id;
-    const url = `${this.baseUrl}/customers/${id}`;
+    const url = `${this.baseUrl}/customers?id=${id}`;
     return this.http.delete<Customer>(url, httpOptions);
   }
   constructor(

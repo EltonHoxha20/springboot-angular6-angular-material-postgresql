@@ -1,9 +1,21 @@
-<button routerLink="/api/customers/detail">Add New Customer</button>
 
-<ul>
-  <li *ngFor="let c of customers"> 
-      <div routerLink="/api/customers/{{c.id}}">{{c.name}}</div>
-    <br/>
-  </li>
-</ul>
-
+<mat-card color="primary">
+<h2>Customer List</h2>
+</mat-card>
+<mat-list *ngFor="let c of customers">
+    <mat-card>
+        <mat-card-content>
+  <mat-list-item>
+    <mat-list-item class="example_spacer2" routerLink="/api/customers/{{c.id}}">
+      <span>
+     <span>ID: </span>{{c.id}}
+     <br/>
+     <span>Name: </span> {{c.name}}
+    </span> 
+  </mat-list-item>
+    <span><button (click)="delete(c)" mat-raised-button color="warn">Delete</button></span>
+    <span class="example_spacer"></span>
+  </mat-list-item>
+</mat-card-content>
+</mat-card>
+</mat-list>
