@@ -15,5 +15,6 @@
 <p>The repository contains two separate apps i.e. customer-angular (frontend) and customer-springboot (backend). The interaction of these two apps is achieved through RESTful webservice, in which the customer-angular is a REST consumer and the rest is a REST provider. The customer-springboot used spring data jpa in handling DDL and DML, but instead of applying all its DML's default methods, I defined a custom query using spring data jpa's query annotation. </p>
 
 <h4>Notes:</h4>
-<p>1. I left the customer-angular's port by its default i.e. 4200 and springboot's port is 8090 (you could change this in application.properties).</p>
+<p>1. I left the customer-angular's port by its default i.e. 4200 and customer-springboot's port is 8090 (you could change this in application.properties).</p>
 <p>2. You need also change the postgres's user credetial to your own credential in application.properties</p>
+<p>3. If the customer-angular app won't run, try to solve the issue by executing npm install in customer-angular root directory.</p>

@@ -14,7 +14,7 @@ public class Customer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@SequenceGenerator(name="customerSequence", allocationSize=1, initialValue =1, sequenceName="customer_sequence")
+	@SequenceGenerator(name="customerSequence", allocationSize=1, initialValue =1, sequenceName="customer_sequence11")
 	
 	@Id
 	@GeneratedValue(generator="customerSequence")
