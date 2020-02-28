@@ -1,0 +1,33 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t 21122018/customer-angular -f ./customer-angular/Dockerfile.dev ./customer-angular
+
+script:
+  - docker run 21122018/customer-angular npm test -- --coverage
+
+after_success:
+  - docker build -t 21122018/multi-client ./customer-angular
+  - docker build -t stephengrider/multi-nginx ./nginx
+  - docker build -t stephengrider/multi-server ./customer-springboot
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push 21122018/multi-client
+  - docker push 21122018/multi-nginx
+  - docker push 21122018/multi-server
+
+# deploy:
+#   provider: elasticbeanstalk
+#   region: us-west-1
+#   app: multi-docker
+#   env: MultiDocker-env
+#   bucket_name: elasticbeanstalk-us-west-1-306476627547
+#   bucket_path: docker-multi
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key:
+#     secure: $AWS_SECRET_KEY

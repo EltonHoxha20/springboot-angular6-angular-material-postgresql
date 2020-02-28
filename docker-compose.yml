@@ -1,0 +1,31 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:latest'
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '3050:80'
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./customer-springboot
+    volumes:
+      - ./customer-springboot:/app
+    environment:
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgres_password
+      - PGPORT=5432
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./customer-angular
+    volumes:
+      - /app/node_modules
+      - ./customer-angular:/app
+ 
